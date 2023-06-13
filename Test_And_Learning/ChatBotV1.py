@@ -1,3 +1,6 @@
+# OGBG
+
+# import
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.tokenize import word_tokenize, sent_tokenize
@@ -10,6 +13,7 @@ from nltk.corpus import words
 from collections import Counter
 import tkinter as tk
 
+# download
 nltk.download('vader_lexicon')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
@@ -18,6 +22,7 @@ nltk.download('words')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
+# words definition
 def record_basic_words(text):
     word_list = words.words()
     tokenizer = RegexpTokenizer(r'\w+')
@@ -26,6 +31,7 @@ def record_basic_words(text):
     word_counts = Counter(basic_words)
     return word_counts
 
+# words by occurence
 def classify_words_by_occurrence(word_counts):
     sorted_words = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)
     words = [word for word, _ in sorted_words]
